@@ -1,0 +1,22 @@
+# serverless.yml
+service: youtube-api
+frameworkVersion: '3.33.0'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-south-1
+
+functions:
+  youTubeHelloFn:
+    handler: hello.handler
+    events:
+      - httpApi:
+          path: /hello
+          method: GET
+  youTubeByeFn:
+    handler: bye.handler
+    events:
+      - httpApi:
+          path: /bye
+          method: GET
